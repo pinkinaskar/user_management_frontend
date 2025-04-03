@@ -1,0 +1,15 @@
+.button-div {
+    width: 15%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input.rm-arrow::-webkit-outer-spin-button,
+input.rm-arrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input.rm-arrow[type=number] {
+    -moz-appearance: textfield;
+}

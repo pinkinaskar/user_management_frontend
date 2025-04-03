@@ -1,0 +1,77 @@
+<!-- <div class="panel-header panel-header-sm">
+</div> -->
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header headngArea">
+          <h5 class="card-title" *ngIf="!uniqueId">Add User</h5>
+          <h5 class="card-title" *ngIf="uniqueId">Edit User</h5>
+
+        </div>
+        <div class="card-body">
+          <form [formGroup]="clientForm">
+
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>NAME*</label>
+                  <input type="text" class="form-control" placeholder="Enter Name" 
+                  formControlName="name" (focusout)="validateForm('name')">
+                  <span class="error" *ngIf="clientErrorMsg?.name">{{clientErrorMsg?.name}}</span>
+                </div>
+              </div>
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>EMAIL ADDRESS*</label>
+                  <input type="text" class="form-control" placeholder="sample@gmail.com" 
+                  formControlName="email" (focusout)="validateForm('email')" >
+                  <span class="error" *ngIf="clientErrorMsg?.email">{{clientErrorMsg?.email}}</span>  
+                </div>
+              </div>
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>MOBILE NUMBER*</label>
+                  <input type="number" class="form-control" formControlName="phone"  placeholder="Enter Mobile Number" (focusout)="validateForm('email')">
+                  <span class="error" *ngIf="clientErrorMsg?.phone">{{clientErrorMsg?.phone}}</span>  
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label class="form-label">ADD PROFILE PICTURE</label>
+                  <div class="uploadpicArea">
+                    <div class="clientImgarea">
+                      <img [src]="profilePicLInk | profileImg" alt="clientimg" />
+                    </div>
+                    <div class="uploadbtnarea">
+                      <input type="file" id="upload" accept="image/png, image/gif, image/jpeg" readonly
+                      #FileSelectInputDialog multiple="false" hidden (change)="uploadImageFile($event)" 
+                      />
+                      <label for="upload" class="uploadbtnlabel"></label>
+                    </div>
+                  </div>
+                  <span class="error" *ngIf="clientErrorMsg?.profile_pic">{{clientErrorMsg?.profile_pic}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group custombuttonArea">
+                  <div class="button-div ">
+                    <button class="btn btn-block cancelbtn" (click)="goBack()" >Cancel</button>
+                    <button class="btn btn-block submitbtn" (click)="submitClientForm()">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
